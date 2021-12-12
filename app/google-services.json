@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "959070328508",
+    "project_id": "newsuty-e4b08",
+    "storage_bucket": "newsuty-e4b08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959070328508:android:01687ae5a0ef6c4287a2b9",
+        "android_client_info": {
+          "package_name": "com.estrada.newsuty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959070328508-fridropg8t58e1u7a7gv3cnuv08br7p0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.estrada.newsuty",
+            "certificate_hash": "0ea6d289a102a8028628fbe4f7321865169f90dd"
+          }
+        },
+        {
+          "client_id": "959070328508-2e1a1uuqi1693tr88popqhbemsnv0uoq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh_No6XDGMAxu28RVcRv5Et58NyfaCcGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959070328508-2e1a1uuqi1693tr88popqhbemsnv0uoq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
