@@ -9,6 +9,7 @@ data class News(
     @ColumnInfo val urlImagen: String,
     @ColumnInfo val titulo: String,
     @ColumnInfo val userCreatorUID: String,
+    @ColumnInfo val spanish: Boolean,
     @ColumnInfo
     val fechaPublicacion: Long = System.currentTimeMillis(),
 )
@@ -16,6 +17,7 @@ data class News(
 @Entity
 data class User(
     @PrimaryKey val userUID: String,
+    @ColumnInfo val isSpanish: Boolean,
     @ColumnInfo val email: String,
 )
 

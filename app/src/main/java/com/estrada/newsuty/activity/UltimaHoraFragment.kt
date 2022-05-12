@@ -23,9 +23,12 @@ class UltimaHoraFragment : Fragment() {
         binding = FragmentUltimaHoraBinding.inflate(layoutInflater)
         var db = AppDatabase.getDatabase(requireContext());
         var newsDAO = db.newsDAO()
-        val datos = newsDAO.obtenerRecentNews()
-        val adaptador = NewsAdaptador(datos as MutableList<News>, userID, context)
+        var datos = newsDAO.obtenerRecentNews()
+        var userDAO = db.userDAO()
 
+        val isSpanish = userDAO.isSpanish(userID!!);
+        datos = datos.filter { it.spanish == isSpanish} as MutableList<News>
+        val adaptador = NewsAdaptador(datos as MutableList<News>, userID, context)
         binding.UltimaHoraRV.adapter = adaptador
         binding.UltimaHoraRV.layoutManager = LinearLayoutManager(activity)
         binding.UltimaHoraRV.setHasFixedSize(true)

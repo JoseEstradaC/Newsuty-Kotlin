@@ -49,15 +49,24 @@ class NewsAdaptador(
                 val votesDAO = db.voteDAO()
                 val newsDAO = db.newsDAO()
                 val votes = votesDAO.getNewsVotes(news.newsID)
-                if (votes.users.isNotEmpty()) {
-                    votes.users.forEach {
-                        val newsVotes = votesDAO.userHasVote(news.newsID, it.userUID)
-                        votesDAO.borrarVote(newsVotes)
+
+                if (news.userCreatorUID == userID!!)
+                {
+                    if (votes.users.isNotEmpty()) {
+                        votes.users.forEach {
+                            val newsVotes = votesDAO.userHasVote(news.newsID, it.userUID)
+                            votesDAO.borrarVote(newsVotes)
+                        }
                     }
+                    newsDAO.borrarNews(news)
+                    datos.remove(news)
+                    notifyDataSetChanged()
+                    Toast.makeText(context, "Noticia eliminada", Toast.LENGTH_SHORT).show()
                 }
-                newsDAO.borrarNews(news)
-                datos.remove(news)
-                notifyDataSetChanged()
+                else
+                {
+                    Toast.makeText(context, "No puedes eliminar una noticia que no te pertenece", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.ListaMenuVotaLike -> {
                 val db = AppDatabase.getDatabase(context!!);

@@ -34,6 +34,9 @@ interface UserDAO {
     @Query("SELECT * FROM user WHERE userUID = :userUID")
     fun obtenerUser(userUID: String): User
 
+    @Query("SELECT isSpanish FROM user WHERE userUID = :userUID")
+    fun isSpanish(userUID: String): Boolean
+
     @Insert
     fun insertarUser(vararg news: User)
 

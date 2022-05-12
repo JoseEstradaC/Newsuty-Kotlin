@@ -24,7 +24,8 @@ class DestacadosFragment : Fragment() {
         var db = AppDatabase.getDatabase(requireContext());
         var newsDAO = db.newsDAO()
         var voteDAO = db.voteDAO()
-        val datos: MutableList<News> = newsDAO.obtenerNews() as MutableList<News>
+        var userDAO = db.userDAO()
+        var datos: MutableList<News> = newsDAO.obtenerNews() as MutableList<News>
 
         datos.sortByDescending {
             val likes = voteDAO.getNewsLikeVotes(it.newsID).size
@@ -32,6 +33,9 @@ class DestacadosFragment : Fragment() {
 
             likes - dislikes
         }
+
+        val isSpanish = userDAO.isSpanish(userID!!);
+        datos = datos.filter { it.spanish == isSpanish} as MutableList<News>
         val adaptador = NewsAdaptador(datos, userID, context)
 
         binding.DestacadosRV.adapter = adaptador

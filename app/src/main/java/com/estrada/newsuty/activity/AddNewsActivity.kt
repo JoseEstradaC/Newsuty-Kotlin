@@ -53,7 +53,8 @@ class AddNewsActivity : AppCompatActivity() {
                                     url,
                                     linkSourceContent.images,
                                     linkSourceContent.ogTitle,
-                                    userID
+                                    userID,
+                                    !(binding.checkBox.isChecked)
                                 )
                             )
                         } catch (ex: Exception) {

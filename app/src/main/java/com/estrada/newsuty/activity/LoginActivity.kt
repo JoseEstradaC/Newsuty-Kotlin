@@ -109,6 +109,7 @@ class LoginActivity : AppCompatActivity() {
                 userdao?.insertarUser(
                     User(
                         authFirebase.currentUser!!.uid,
+                        false,
                         authFirebase.currentUser!!.email.toString()
                     )
                 )
