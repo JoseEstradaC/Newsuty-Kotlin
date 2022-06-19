@@ -7,6 +7,10 @@
         android:icon="@drawable/ic_baseline_add_circle_24"
         android:title="@string/AddNews" />
     <item
+        android:id="@+id/topBarIdioma"
+        android:title="@string/cambiar_idioma"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/topBarSalir"
         android:title="@string/salir"
         app:showAsAction="never" />

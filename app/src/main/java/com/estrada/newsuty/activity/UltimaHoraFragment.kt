@@ -1,5 +1,6 @@
 package com.estrada.newsuty.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +27,9 @@ class UltimaHoraFragment : Fragment() {
         var datos = newsDAO.obtenerRecentNews()
         var userDAO = db.userDAO()
 
-        val isSpanish = userDAO.isSpanish(userID!!);
+        val sharedPref = context?.getSharedPreferences("idioma", Context.MODE_PRIVATE)
+
+        val isSpanish = sharedPref?.getString("idioma", "ES").equals("ES");
         datos = datos.filter { it.spanish == isSpanish} as MutableList<News>
         val adaptador = NewsAdaptador(datos as MutableList<News>, userID, context)
         binding.UltimaHoraRV.adapter = adaptador

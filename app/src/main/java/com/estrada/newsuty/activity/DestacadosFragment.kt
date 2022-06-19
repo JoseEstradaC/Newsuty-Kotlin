@@ -1,5 +1,6 @@
 package com.estrada.newsuty.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +25,6 @@ class DestacadosFragment : Fragment() {
         var db = AppDatabase.getDatabase(requireContext());
         var newsDAO = db.newsDAO()
         var voteDAO = db.voteDAO()
-        var userDAO = db.userDAO()
         var datos: MutableList<News> = newsDAO.obtenerNews() as MutableList<News>
 
         datos.sortByDescending {
@@ -34,7 +34,9 @@ class DestacadosFragment : Fragment() {
             likes - dislikes
         }
 
-        val isSpanish = userDAO.isSpanish(userID!!);
+        val sharedPref = context?.getSharedPreferences("idioma", Context.MODE_PRIVATE)
+
+        val isSpanish = sharedPref?.getString("idioma", "ES").equals("ES");
         datos = datos.filter { it.spanish == isSpanish} as MutableList<News>
         val adaptador = NewsAdaptador(datos, userID, context)
 

@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [News::class, User::class, NewsVotes::class], version = 5)
+@Database(entities = [News::class, User::class, NewsVotes::class], version = 7)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun newsDAO(): NewsDAO
     abstract fun userDAO(): UserDAO

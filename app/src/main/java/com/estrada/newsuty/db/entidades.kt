@@ -5,7 +5,7 @@ import androidx.room.*
 @Entity
 data class News(
     @PrimaryKey(autoGenerate = true) val newsID: Long,
-    @ColumnInfo val url: String,
+    @ColumnInfo val url: String?,
     @ColumnInfo val urlImagen: String,
     @ColumnInfo val titulo: String,
     @ColumnInfo val userCreatorUID: String,
@@ -17,7 +17,6 @@ data class News(
 @Entity
 data class User(
     @PrimaryKey val userUID: String,
-    @ColumnInfo val isSpanish: Boolean,
     @ColumnInfo val email: String,
 )
 

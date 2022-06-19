@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="Delete"
+        android:title="@string/borrar"
         android:id="@+id/ListaMenuDelete" />
 
     <item
-        android:title="Vota Like"
+        android:title="@string/vota_like"
         android:id="@+id/ListaMenuVotaLike" />
     <item
-        android:title="Vota Dislike"
+        android:title="@string/vota_dislike"
         android:id="@+id/ListaMenuVotaDislike" />
 </menu>

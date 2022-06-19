@@ -85,6 +85,12 @@ class LoginActivity : AppCompatActivity() {
         val email = binding.LoginEmail.text.toString().trim()
         val password = binding.LoginPassword.text.toString().trim()
 
+        if (email.isEmpty() || password.isEmpty())
+        {
+            Toast.makeText(this, "Introduzca un usuario y/o contraseña", Toast.LENGTH_LONG).show()
+            return
+        }
+
         authFirebase.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) {
             if (it.isSuccessful) {
                 goMain()
@@ -109,7 +115,6 @@ class LoginActivity : AppCompatActivity() {
                 userdao?.insertarUser(
                     User(
                         authFirebase.currentUser!!.uid,
-                        false,
                         authFirebase.currentUser!!.email.toString()
                     )
                 )

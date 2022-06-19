@@ -27,20 +27,22 @@ class NewsAdaptador(
     context: Context?,
 ) : RecyclerView.Adapter<NewsAdaptador.NewsContenedor>() {
     val gestionarPulsacionCorta: (News) -> Unit = {
-        fun Uri?.openInBrowser(context: Context) {
-            this ?: return
-            val browserIntent = Intent(Intent.ACTION_VIEW, this)
-            ContextCompat.startActivity(context, browserIntent, null)
-        }
-
-        fun String?.asUri(): Uri? {
-            return try {
-                Uri.parse(this)
-            } catch (e: Exception) {
-                null
+        if (!it.url.isNullOrEmpty()) {
+            fun Uri?.openInBrowser(context: Context) {
+                this ?: return
+                val browserIntent = Intent(Intent.ACTION_VIEW, this)
+                ContextCompat.startActivity(context, browserIntent, null)
             }
+
+            fun String?.asUri(): Uri? {
+                return try {
+                    Uri.parse(this)
+                } catch (e: Exception) {
+                    null
+                }
+            }
+            it.url.asUri()?.openInBrowser(context!!)
         }
-        it.url.asUri()?.openInBrowser(context!!)
     }
     val gestionarPulsacionLarga: (MenuItem, News) -> Boolean = { item, news ->
         when (item.itemId) {

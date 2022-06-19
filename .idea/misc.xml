@@ -20,7 +20,17 @@
         <entry key="..\:/Users/josee/AndroidStudioProjects/Newsuty/app/src/main/res/menu/lista_news_menu.xml" value="0.2947916666666667" />
         <entry key="..\:/Users/josee/AndroidStudioProjects/Newsuty/app/src/main/res/menu/topbar.xml" value="0.2578125" />
         <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/activity_add_news.xml" value="0.33" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/activity_login.xml" value="0.2203125" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/activity_main.xml" value="0.2203125" />
         <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/activity_register.xml" value="0.225" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/fragment_destacados.xml" value="0.2203125" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/fragment_dialog_idioma.xml" value="0.33" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/fragment_mis_noticias.xml" value="0.2203125" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/fragment_ultima_hora.xml" value="0.2203125" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/layout/lista_news_item.xml" value="0.2203125" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2203125" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/menu/lista_news_menu.xml" value="0.2203125" />
+        <entry key="..\:/Users/josee/Desktop/Newsuty-Kotlin/app/src/main/res/menu/topbar.xml" value="0.2203125" />
       </map>
     </option>
   </component>

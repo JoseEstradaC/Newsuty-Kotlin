@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.estrada.newsuty.R
 import com.estrada.newsuty.databinding.ActivityMainBinding
+import com.estrada.newsuty.dialog.IdiomaDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -54,6 +55,11 @@ class MainActivity : AppCompatActivity() {
             R.id.topBarSalir -> {
                 auth.signOut()
                 finish()
+                true
+            }
+            R.id.topBarIdioma -> {
+                var dialog = IdiomaDialogFragment()
+                dialog.show(supportFragmentManager, "IdiomaDialog")
                 true
             }
             R.id.topBarAddNews -> {

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <TextView
+        android:id="@+id/idiomaTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/selecciona_el_idioma_de_las_noticias"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <RadioGroup
+        android:id="@+id/idiomaSelector"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="25dp"
+        app:layout_constraintTop_toBottomOf="@id/idiomaTitulo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <RadioButton
+            android:id="@+id/idiomaRadioEspañol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/espa_ol"
+            >
+        </RadioButton>
+        <RadioButton
+            android:id="@+id/idiomaRadioIngles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ingles"
+            >
+        </RadioButton>
+
+    </RadioGroup>
+    <Button
+        android:id="@+id/idiomaCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancelar"
+        android:backgroundTint="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/idiomaSelector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="25dp"
+        >
+    </Button>
+    <Button
+        android:id="@+id/idiomaOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cambiar"
+        android:backgroundTint="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/idiomaSelector"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="25dp"
+        >
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
