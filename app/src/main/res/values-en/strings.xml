@@ -31,4 +31,6 @@
     <string name="cambiar">Change</string>
     <string name="cambiar_idioma">Change Language</string>
     <string name="selecciona_el_idioma_de_las_noticias">Select the language of the news</string>
+    <string name="hacer_foto">Take picture</string>
+    <string name="titulo">Title</string>
 </resources>
