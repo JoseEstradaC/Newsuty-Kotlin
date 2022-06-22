@@ -33,4 +33,17 @@
     <string name="selecciona_el_idioma_de_las_noticias">Select the language of the news</string>
     <string name="hacer_foto">Take picture</string>
     <string name="titulo">Title</string>
+    <string name="noticia_add">News added</string>
+    <string name="noticia_add_err">Error adding new news</string>
+    <string name="noticia_add_err_title">You must add a title before taking the photo</string>
+    <string name="Registro">Successful registration</string>
+    <string name="Registro_err">Error during registration</string>
+    <string name="Registro_err_google">Error in google service</string>
+    <string name="Registro_err_empty">Enter a username and/or password</string>
+    <string name="Registro_err_err">Error</string>
+    <string name="Registro_nesw_del">News deleted</string>
+    <string name="Registro_nesw_del_permision">You can not delete a news that does not belong to you</string>
+    <string name="news_vote">You voted successful</string>
+    <string name="news_vote_del">Vote deleted</string>
+    <string name="news_vote_del_first">You have already voted on this news, to change the vote you have to delete it first</string>
 </resources>

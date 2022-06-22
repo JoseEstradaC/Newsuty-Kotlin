@@ -31,4 +31,17 @@
     <string name="selecciona_el_idioma_de_las_noticias">Selecciona el idioma de las noticias</string>
     <string name="hacer_foto">Hacer foto</string>
     <string name="titulo">Titulo</string>
+    <string name="noticia_add">Noticia añadida</string>
+    <string name="noticia_add_err">Error al añadir la noticia</string>
+    <string name="noticia_add_err_title">Debes añadir un título antes de hacer la foto</string>
+    <string name="Registro">Registro correcto</string>
+    <string name="Registro_err">Registro incorrecto</string>
+    <string name="Registro_err_google">Fallo en el servicio de google</string>
+    <string name="Registro_err_empty">Introduzca un usuario y/o contraseña</string>
+    <string name="Registro_err_err">Error</string>
+    <string name="Registro_nesw_del">Noticia eliminada</string>
+    <string name="Registro_nesw_del_permision">No puedes eliminar una noticia que no te pertenece</string>
+    <string name="news_vote">has votado correctamente</string>
+    <string name="news_vote_del">Voto borrado</string>
+    <string name="news_vote_del_first">Ya has votado en esta noticia, para cambiar el voto tienes que borrarlo primero</string>
 </resources>

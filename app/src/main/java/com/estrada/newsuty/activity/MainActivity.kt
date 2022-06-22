@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.estrada.newsuty.R
 import com.estrada.newsuty.databinding.ActivityMainBinding
 import com.estrada.newsuty.dialog.IdiomaDialogFragment
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -23,11 +24,11 @@ class MainActivity : AppCompatActivity() {
     private val respuestaNewNews =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
-                Toast.makeText(this, "Noticia añadida", Toast.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, R.string.noticia_add, Snackbar.LENGTH_SHORT).show()
                 openFragment(DestacadosFragment.newInstance())
             } else {
                 if (it.resultCode != RESULT_CANCELED) {
-                    Toast.makeText(this, "Error al añadir la noticia", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, R.string.noticia_add_err, Snackbar.LENGTH_SHORT).show()
                 }
             }
         }

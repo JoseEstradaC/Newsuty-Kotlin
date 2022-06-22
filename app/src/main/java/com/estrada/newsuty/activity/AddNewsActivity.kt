@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.estrada.newsuty.R
 import com.estrada.newsuty.databinding.ActivityAddNewsBinding
 import com.estrada.newsuty.db.AppDatabase
 import com.estrada.newsuty.db.News
@@ -19,6 +20,7 @@ import com.estrada.newsuty.db.NewsDAO
 import com.estrada.newsuty.ogtagparser.LinkSourceContent
 import com.estrada.newsuty.ogtagparser.LinkViewCallback
 import com.estrada.newsuty.ogtagparser.OgTagParser
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -44,7 +46,7 @@ class AddNewsActivity : AppCompatActivity() {
         }
         binding.AddNewBtnCamera.setOnClickListener {
             if (binding.AddNewTitle.text.isNullOrEmpty())
-                Toast.makeText(this, "Debes añadir un título antes de hacer la foto", Toast.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, R.string.noticia_add_err_title, Snackbar.LENGTH_SHORT).show()
             else
             {
                 if (ContextCompat.checkSelfPermission(binding.root.context, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {

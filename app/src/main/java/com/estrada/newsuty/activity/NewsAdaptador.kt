@@ -19,6 +19,7 @@ import com.estrada.newsuty.db.News
 import com.estrada.newsuty.db.NewsVotes
 import com.github.marlonlom.utilities.timeago.TimeAgo
 import com.github.marlonlom.utilities.timeago.TimeAgoMessages
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class NewsAdaptador(
@@ -44,7 +45,7 @@ class NewsAdaptador(
             it.url.asUri()?.openInBrowser(context!!)
         }
     }
-    val gestionarPulsacionLarga: (MenuItem, News) -> Boolean = { item, news ->
+    val gestionarPulsacionLarga: (MenuItem, News, ListaNewsItemBinding) -> Boolean = { item, news, binding ->
         when (item.itemId) {
             R.id.ListaMenuDelete -> {
                 val db = AppDatabase.getDatabase(context!!);
@@ -63,11 +64,11 @@ class NewsAdaptador(
                     newsDAO.borrarNews(news)
                     datos.remove(news)
                     notifyDataSetChanged()
-                    Toast.makeText(context, "Noticia eliminada", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, R.string.Registro_nesw_del, Snackbar.LENGTH_SHORT).show()
                 }
                 else
                 {
-                    Toast.makeText(context, "No puedes eliminar una noticia que no te pertenece", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, R.string.Registro_nesw_del_permision, Snackbar.LENGTH_SHORT).show()
                 }
             }
             R.id.ListaMenuVotaLike -> {
@@ -77,22 +78,14 @@ class NewsAdaptador(
                 if (newsVote == null) {
                     voteDAO.insertarVote(NewsVotes(news.newsID, userID!!, true))
                     notifyDataSetChanged()
-                    Toast.makeText(
-                        context,
-                        "has votado correctamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Snackbar.make(binding.root, R.string.news_vote, Snackbar.LENGTH_SHORT).show()
                 } else {
                     if (newsVote.esLike) {
                         voteDAO.borrarVote(newsVote)
                         notifyDataSetChanged()
-                        Toast.makeText(context, "Voto borrado", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(binding.root, R.string.news_vote_del, Snackbar.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(
-                            context,
-                            "Ya has votado en esta noticia, para cambiar el voto tienes que borrarlo primero",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Snackbar.make(binding.root, R.string.news_vote_del_first, Snackbar.LENGTH_SHORT).show()
                     }
                 }
                 true
@@ -104,22 +97,14 @@ class NewsAdaptador(
                 if (newsVote == null) {
                     voteDAO.insertarVote(NewsVotes(news.newsID, userID!!, false))
                     notifyDataSetChanged()
-                    Toast.makeText(
-                        context,
-                        "has votado correctamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Snackbar.make(binding.root, R.string.news_vote, Snackbar.LENGTH_SHORT).show()
                 } else {
                     if (newsVote.esLike) {
-                        Toast.makeText(
-                            context,
-                            "Ya has votado en esta noticia, para cambiar el voto tienes que borrarlo primero",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Snackbar.make(binding.root, R.string.news_vote_del_first, Snackbar.LENGTH_SHORT).show()
                     } else {
                         voteDAO.borrarVote(newsVote)
                         notifyDataSetChanged()
-                        Toast.makeText(context, "Voto borrado", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(binding.root, R.string.news_vote_del, Snackbar.LENGTH_SHORT).show()
                     }
                 }
                 true
@@ -182,7 +167,7 @@ class NewsAdaptador(
                 val pop = PopupMenu(binding.root.context, binding.listaNewsTitulo)
                 pop.inflate(R.menu.lista_news_menu)
                 pop.setOnMenuItemClickListener {
-                    gestionarPulsacionLarga(it, news)
+                    gestionarPulsacionLarga(it, news, binding)
                 }
 
                 pop.show()

@@ -17,6 +17,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
@@ -32,9 +33,9 @@ class LoginActivity : AppCompatActivity() {
     private val respuestaMain =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
-                Toast.makeText(this, "Registro correcto", Toast.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, R.string.Registro, Snackbar.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Registro incorrecto", Toast.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, R.string.Registro_err, Snackbar.LENGTH_SHORT).show()
             }
         }
     private val respuestaGoogle =
@@ -47,18 +48,17 @@ class LoginActivity : AppCompatActivity() {
                     val credenciales = GoogleAuthProvider.getCredential(cuenta.idToken, null)
                     authFirebase.signInWithCredential(credenciales).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            Toast.makeText(this, "Registro correcto", Toast.LENGTH_SHORT).show()
+                            Snackbar.make(binding.root, R.string.Registro, Snackbar.LENGTH_SHORT).show()
                             goMain()
                         } else {
-                            Toast.makeText(this, "Registro incorrecto", Toast.LENGTH_SHORT).show()
+                            Snackbar.make(binding.root, R.string.Registro_err, Snackbar.LENGTH_SHORT).show()
                         }
                     }
                 } catch (e: ApiException) {
-                    Toast.makeText(this, "Fallo en el servicio de google", Toast.LENGTH_SHORT)
-                        .show()
+                    Snackbar.make(binding.root, R.string.Registro_err_google, Snackbar.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Registro incorrecto, google", Toast.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, R.string.Registro_err_google, Snackbar.LENGTH_SHORT).show()
             }
         }
 
@@ -87,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
 
         if (email.isEmpty() || password.isEmpty())
         {
-            Toast.makeText(this, "Introduzca un usuario y/o contraseña", Toast.LENGTH_LONG).show()
+            Snackbar.make(binding.root, R.string.Registro_err_empty, Snackbar.LENGTH_SHORT).show()
             return
         }
 
@@ -95,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
             if (it.isSuccessful) {
                 goMain()
             } else {
-                Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+                Snackbar.make(binding.root, R.string.Registro_err_err, Snackbar.LENGTH_SHORT).show()
             }
         }
     }
